@@ -46,5 +46,26 @@ namespace Tasks.Controllers
 
             return View("Succe  ss");
         }
+
+        public ActionResult Details()
+        {
+            var udvm = new UserDetailsViewModel();
+            ViewBag.Task = "Task 18 - User Details";
+            return View(udvm);
+        }
+        [HttpPost]
+        public ActionResult SubmitDetails(UserDetailsViewModel udvm)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("My Error", "Invalid Data");
+                ViewBag.Task = "Task 18 - User Details";
+                Response.Cookies["username"].Value ='';
+                return View("Details", udvm);
+            }
+            Response.Cookies["username"].Value = udvm.Username;
+            return View("Success");
+        }
     }
 }
