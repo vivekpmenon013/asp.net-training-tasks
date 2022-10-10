@@ -1,0 +1,52 @@
+﻿@model Tasks.Models.UserDetailsViewModel
+
+
+@using (Html.BeginForm("SubmitDetails", "User", FormMethod.Post))
+{
+<div class="row">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            @Html.LabelFor(model => model.Username, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+        <div class="col-md-6 mb-3">
+            @Html.LabelFor(model => model.Date, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Date, new { @type = "date", @class = "form-control datepicker", @min = "1900-01-01", @max = "2090-01-01" })
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            @Html.LabelFor(model => model.Nationality, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Nationality, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Nationality)
+        </div>
+        <div class="col-md-6 mb-3">
+            @Html.LabelFor(model => model.Nationality, new { @class = "form-label" })
+            @Html.DropDownListFor(model => model.Country, Model.Countries, "Select Country", new { @class = "form-select" })
+            @Html.ValidationMessageFor(model => model.Country)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            @Html.LabelFor(model => model.Address, new { @class = "form-label" })
+            @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+        <div class="col-md-6 mb-3">
+            @Html.LabelFor(model => model.SkillSet, new { @class = "form-label" })
+            @Html.TextAreaFor(model => model.SkillSet, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SkillSet)
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary text">
+                Validate
+            </button>
+        </div>
+    </div>
+</div>
+}
+
