@@ -1,0 +1,33 @@
+﻿@model Tasks.Models.ArithmeticOperationsViewModel
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            @using (Html.BeginForm("ArithmeticOperations", "Home", FormMethod.Post))
+            {
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.FirstNumber, new { @class = "form-label" })
+                    @Html.TextBoxFor(x => x.FirstNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.FirstNumber)
+                </div>
+
+
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.SecondNumber, new { @class = "form-label" })
+                    @Html.TextBoxFor(x => x.SecondNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.SecondNumber)
+                </div>
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-primary me-2" value="Addition" name="Command">Addition</button>
+                    <button type="submit" class="btn btn-primary" value="Subtraction" name="Command">Subtraction</button>
+                </div>
+
+                @Html.Label("Result: ")
+                if (ViewData.ModelState.IsValid)
+                {
+                    @Html.DisplayFor(x => x.Result)
+                }
+            }
+        </div>
+           
+       
+    </div>
+

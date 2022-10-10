@@ -1,0 +1,13 @@
+﻿.btn-custom {
+    background-color: green;
+    color: white
+}
+.btn-custom:hover {
+    background-color: red;
+}
+.field-validation-error {
+    color: red;
+}
+.form-control.is-invalid {
+    background-image: none;
+}

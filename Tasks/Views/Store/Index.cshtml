@@ -1,0 +1,40 @@
+﻿@model Tasks.Models.ListBoxSelectViewModel
+<div class="row">
+    <form>
+        <div class="col-md-4">
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Products, new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.Products, Model.Products, "Please select", new { @class = "form-select" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.SelectedProductPrice, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.SelectedProductPrice, new { @class = "form-control", @disabled = true })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(model => model.SelectedProductImage, new { @class = "form-label" })
+            </div>
+            <img id="selectedProductImage" class="img-fluid" />
+        </div>
+
+
+</form>
+   
+</div>
+<script>
+    $("#Products").change(function () {
+        var selectedItemID = $("#Products option:selected").val();
+        if (selectedItemID != null && selectedItemID != 0) {
+            $.ajax({
+                url: "/api/store/GetItemDetails?itemID=" + selectedItemID, type: 'Get', success: function (response) {
+                    $("#SelectedProductPrice").val(response.Price);
+                    $("#selectedProductImage").attr("src", response.Image);
+                }
+            })
+        } else {
+            $("#SelectedProductPrice").val('');
+            $("#selectedProductImage").attr("src", "");
+        }
+        
+    })
+</script>

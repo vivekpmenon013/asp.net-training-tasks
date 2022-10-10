@@ -1,0 +1,23 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Styles.Render("~/Styles/bootstrap")
+    @Styles.Render("~/Styles/site")
+    @Scripts.Render("~/Scripts/bootstrap")
+    @Scripts.Render("~/Scripts/JqueryValidate")
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>@ViewBag.Task</h1>
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    
+</body>
+</html>
