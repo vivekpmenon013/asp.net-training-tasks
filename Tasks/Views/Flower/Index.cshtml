@@ -1,0 +1,34 @@
+﻿@model Tasks.Models.FlowerViewModel
+
+@using (Html.BeginForm("Index", "Flower", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                @foreach (var flower in Model.Flowers)
+                {
+                    <div class="col-6">
+                        <div class="form-check">
+                            @Html.RadioButtonFor(model => model.SelectedFlower, flower, new { @class = "form-check-input" })
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                @flower
+                            </label>
+                        </div>
+                    </div>
+                }
+            </div>
+            @Html.ValidationMessageFor(model => model.SelectedFlower)
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <button class="btn btn-primary text" id="submit" type="submit">
+                Display Flower Label
+            </button>
+        </div>
+    </div>
+}
+
+<div class="row mx-3">
+    @Html.DisplayFor(model => model.SelectedFlower)
+</div>

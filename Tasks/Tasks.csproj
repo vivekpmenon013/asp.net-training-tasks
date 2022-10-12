@@ -295,6 +295,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\FlowerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -303,6 +304,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArithmeticOperationsViewModel.cs" />
+    <Compile Include="Models\FlowerViewModel.cs" />
     <Compile Include="Models\ListBoxSelectViewModel.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\UserPaymentViewModel.cs" />
@@ -320,6 +322,7 @@
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Success.cshtml" />
+    <Content Include="Views\Flower\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
